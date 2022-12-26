@@ -1,24 +1,7 @@
-def binary_search(list, item):
-    low = 0
-    high = len(list) - 1
-    # steps = 0
+def find_max(list):
+    if len(list) == 2:
+        return list[0] if list[0] > list[1] else list[1]
+    sub_max = max(list[1:])
+    return list[0] if list[0] > sub_max else sub_max
 
-    while low <= high:
-        mid = (high + low) // 2
-        guess = list[mid]
-        steps += 1
-
-        if item > guess:
-            low = mid + 1
-        elif item < guess:
-            high = mid - 1
-        else:
-            # print(steps)
-            return mid
-
-    return None
-
-random_list = list(range(1, 129)) # [1, 2, ..., 127, 128]
-num = 24
-
-print(binary_search(random_list, num))
+print(find_max([5, 4, 3, 424, 24, 2,134, 564, 349]))
